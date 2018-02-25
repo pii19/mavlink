@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<mavlink>
+  <!-- OGURA custom message definitions                                -->
+  <!-- mavlink ID range 33000 - 33099                                  -->
+	<enums>
+	  <enum name="OGR_SENSOR_TYPE">
+	    <description>Enumeration of temperature sensor types</description>
+	    <entry name="OGR_SENSOR_UNKNOWN" value="0"/>
+	    <entry name="OGR_SENSOR_TEMP" value="1"/>
+	  </enum>
+	</enums>
+    <messages>
+      <message id="227" name="OGR_SENSOR_TEMP">
+        <description>Temperature reporting</description>
+        <field type="float" name="temperature" units="degC">temperature in celsius</field>
+      </message>
+    </messages>
+</mavlink>
