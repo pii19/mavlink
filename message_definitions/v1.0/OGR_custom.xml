@@ -3,16 +3,39 @@
   <!-- OGURA custom message definitions                                -->
   <!-- mavlink ID range 33000 - 33099                                  -->
 	<enums>
-	  <enum name="OGR_SENSOR_TYPE">
+	  <enum name="OGR_SENSOR_TYPES">
 	    <description>Enumeration of temperature sensor types</description>
 	    <entry name="OGR_SENSOR_UNKNOWN" value="0"/>
 	    <entry name="OGR_SENSOR_TEMP" value="1"/>
+	    <entry name="OGR_SENSOR_TEMP_MOTOR" value="2"/>
+	    <entry name="OGR_SENSOR_GAS" value="3"/>
 	  </enum>
 	</enums>
     <messages>
-      <message id="227" name="OGR_SENSOR_TEMP">
+      <message id="33000" name="OGR_SENSOR_TEMP">
         <description>Temperature reporting</description>
-        <field type="float" name="temperature" units="degC">temperature in celsius</field>
+        <field type="float" name="outer_temp" units="degC">outer temperature in celsius</field>
+        <field type="float" name="inner_temp" units="degC">inner temperature in celsius</field>
+      </message>
+      <message id="33001" name="OGR_SENSOR_TEMP_MOTOR">
+        <description>Temperature reporting</description>
+        <field type="float" name="motor1_temp" units="degC">motor 1 temperature in celsius</field>
+        <field type="float" name="motor1_volt" units="V">motor 1 sensor voltage in volt</field>
+        <field type="float" name="motor2_temp" units="degC">motor 2 temperature in celsius</field>
+        <field type="float" name="motor2_volt" units="V">motor 2 sensor voltage in volt</field>
+        <field type="float" name="motor3_temp" units="degC">motor 3 temperature in celsius</field>
+        <field type="float" name="motor3_volt" units="V">motor 3 sensor voltage in volt</field>
+        <field type="float" name="motor4_temp" units="degC">motor 4 temperature in celsius</field>
+        <field type="float" name="motor4_volt" units="V">motor 4 sensor voltage in volt</field>
+      </message>
+      <message id="33010" name="OGR_SENSOR_GAS">
+        <description>Gas sensor reporting</description>
+        <field type="float" name="co_concentration" units="ppm"></field>
+        <field type="float" name="co_voltage" units="V"></field>
+        <field type="float" name="h2s_concentration" units="ppm"></field>
+        <field type="float" name="h2s_voltage" units="V"></field>
+        <field type="float" name="inflammable_concentration" units="ppm"></field>
+        <field type="float" name="inflammable_voltage" units="V"></field>
       </message>
     </messages>
 </mavlink>
