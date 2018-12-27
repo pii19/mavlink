@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<mavlink>
+  <!-- W-JFoP custom message definitions                                -->
+  <!-- mavlink ID range 33100 - 33199                                  -->
+	<enums>
+	  <enum name="WJF_SENSOR_TYPES">
+	    <description>Enumeration of sensor types</description>
+	    <entry name="WJF_SENSOR_UNKNOWN" value="0"/>
+	    <entry name="WJF_SENSOR_TEMPHUMI" value="1"/>
+	    <entry name="WJF_SENSOR_ADC" value="2"/>
+	    <entry name="WJF_SENSOR_SOIL" value="3"/>
+	  </enum>
+	</enums>
+    <messages>
+      <message id="33000" name="WJF_SENSOR_TEMPHUMI">
+        <description>Temperature and humidity reporting</description>
+        <field type="float" name="temp" units="degC">temperature in celsius</field>
+        <field type="float" name="humi" units="percent">relative humidity value</field>
+      </message>
+      <message id="33001" name="WJF_SENSOR_ADC">
+        <description>ADC reporting</description>
+        <field type="float" name="adc1_volt" units="V">adc 1 sensor voltage in volt</field>
+        <field type="float" name="adc2_volt" units="V">adc 2 sensor voltage in volt</field>
+        <field type="float" name="adc3_volt" units="V">adc 3 sensor voltage in volt</field>
+        <field type="float" name="adc4_volt" units="V">adc 4 sensor voltage in volt</field>
+      </message>
+      <message id="33010" name="WJF_SENSOR_SOIL">
+        <description>Soil sensor reporting</description>
+        <field type="float" name="temp" units="degC">temperature in celsius</field>
+        <field type="float" name="pH" units="pH">potential of hydrogen</field>
+        <field type="float" name="ec" units="mS/cm">electrical conductivity</field>
+        <field type="float" name="ec_phase" units="radian">electrical conductivity phase</field>
+      </message>
+    </messages>
+</mavlink>
